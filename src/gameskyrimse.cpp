@@ -197,8 +197,7 @@ MOBase::VersionInfo GameSkyrimSE::version() const
 
 QList<PluginSetting> GameSkyrimSE::settings() const
 {
-  return {PluginSetting("enderal_downloads", "allow Enderal and Enderal SE downloads",
-                        QVariant(false))};
+  return {};
 }
 
 void GameSkyrimSE::initializeProfile(const QDir& path, ProfileSettings settings) const
@@ -266,10 +265,7 @@ QString GameSkyrimSE::gameShortName() const
 
 QStringList GameSkyrimSE::validShortNames() const
 {
-  QStringList shortNames{"Skyrim"};
-  if (m_Organizer->pluginSetting(name(), "enderal_downloads").toBool()) {
-    shortNames.append({"Enderal", "EnderalSE"});
-  }
+  QStringList shortNames{"Skyrim", "Enderal", "EnderalSE"};
   return shortNames;
 }
 
